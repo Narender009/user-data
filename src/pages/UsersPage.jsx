@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import UserTable from '../components/UserTable';
 import Pagination from '../components/Pagination';
 import SearchBar from '../components/SearchBar';

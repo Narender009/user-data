@@ -1,4 +1,8 @@
+import React from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+
+
+
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     // Generate an array of page numbers to display
     const getPageNumbers = () => {
