@@ -1,26 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import { Search } from 'lucide-react';
 
 const SearchBar = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  
-  // Debounce the search to avoid excessive filtering on each keystroke
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      onSearch(searchTerm);
-    }, 300);
-    
-    return () => clearTimeout(timer);
-  }, [searchTerm, onSearch]);
-  
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSearch(searchTerm); // Search only when button clicked
+  };
+
   return (
     <div className="search-bar">
-      <input
-        type="text"
-        placeholder="Search by first or last name..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        className="w-full p-2 border border-gray-300 rounded"
-      />
+      <form onSubmit={handleSubmit} className="search-form">
+        <input
+          type="text"
+          placeholder="Search by first or last name..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button type="submit" className="search-button">
+          <Search />
+        </button>
+      </form>
     </div>
   );
 };

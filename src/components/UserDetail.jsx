@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
 
 const UserDetail = ({ user }) => {
   if (!user) {
@@ -6,7 +7,7 @@ const UserDetail = ({ user }) => {
   }
 
   const fields = [
-    { key: 'id', label: 'ID' },
+    
     { key: 'first_name', label: 'First Name' },
     { key: 'last_name', label: 'Last Name' },
     { key: 'age', label: 'Age' },
@@ -20,13 +21,16 @@ const UserDetail = ({ user }) => {
 
   return (
     <div className="user-detail">
-      <Link to="/users" className="back-button">
-        ← Back to Users
+    <div className='flex justify-start justify-items-center gap-5'> 
+    <Link to="/users" className="back-button">
+      <ArrowLeft />
       </Link>
       
       <h2 className="text-2xl font-bold mb-6">
-        User Details: {user.first_name} {user.last_name}
+        Details: {user.first_name} {user.last_name}
       </h2>
+    </div>
+
       
       <div className="detail-content">
         {fields.map(field => (

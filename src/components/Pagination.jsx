@@ -1,3 +1,4 @@
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 const Pagination = ({ currentPage, totalPages, onPageChange }) => {
     // Generate an array of page numbers to display
     const getPageNumbers = () => {
@@ -44,7 +45,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
         >
-          Previous
+          <ChevronLeft />
         </button>
         
         {getPageNumbers().map((page, index) => (
@@ -65,7 +66,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
         >
-          Next
+          <ChevronRight />
         </button>
       </div>
     );
